@@ -1,12 +1,12 @@
 class Node:
-	def __init__(self,data=None,next=None):
+	def __init__(self,data=None):
 		"""
 		attributes:
-			-> data = data in the node
-			-> next = next node it points to
+			-> data - data in the node
 		"""
 		self.data=data
-		self.next=next
+		self.next=None
+		self.prev=None
 
 	def __str__(self):
 		return str(self.data)
