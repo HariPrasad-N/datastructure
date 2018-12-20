@@ -114,4 +114,3 @@ if __name__ == '__main__':
 	print(node1!=node2)
 	print(node1>=node2)
 	print(node1>node2)
-	
