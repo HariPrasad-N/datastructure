@@ -71,22 +71,22 @@ class Node:
 		"""
 		return self.data <= rnode.data 
 
-	def __eq__(self,rnode):
-		"""
-		returns a.data==b.data for a and b Nodes
-		Raises TypeError if type of data attribute does not support logical operations
-		"""
-		if rnode is not None:
-			return self.data == rnode.data
-		else:
-			return False
+	# def __eq__(self,rnode):
+	# 	"""
+	# 	returns a.data==b.data for a and b Nodes
+	# 	Raises TypeError if type of data attribute does not support logical operations
+	# 	"""
+	# 	if rnode is not None:
+	# 		return self.data == rnode.data
+	# 	else:
+	# 		return False
 
-	def __ne__(self,rnode):
-		"""
-		returns a.data!=b.data for a and b Nodes
-		Raises TypeError if type of data attribute does not support logical operations
-		"""
-		return self.data != rnode.data
+	# def __ne__(self,rnode):
+	# 	"""
+	# 	returns a.data!=b.data for a and b Nodes
+	# 	Raises TypeError if type of data attribute does not support logical operations
+	# 	"""
+	# 	return self.data != rnode.data
 
 	def __ge__(self,rnode):
 		"""
