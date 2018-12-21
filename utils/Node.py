@@ -76,7 +76,10 @@ class Node:
 		returns a.data==b.data for a and b Nodes
 		Raises TypeError if type of data attribute does not support logical operations
 		"""
-		return self.data == rnode.data
+		if rnode is not None:
+			return self.data == rnode.data
+		else:
+			return False
 
 	def __ne__(self,rnode):
 		"""
