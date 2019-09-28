@@ -8,9 +8,9 @@ class Stack:
             attributes:
                 size -> Max size of the stack before stack overflow.
         """
-        self.stack = []
+        self.__stack = []
         try:
-            self.max_size = int(size)
+            self.__max_size = int(size)
         except ValueError:
             error.error_message("TypeError", "__init__(): Size argument passed invalid")
 
@@ -20,9 +20,9 @@ class Stack:
         :param element: Element to be pushed on the top of the stack
         :return: None
         """
-        if len(self.stack) == self.max_size:
-            error.error_message("Overflow Error", "push(): Stack full, cannot push {}".format(element))
-        self.stack.append(element)
+        if len(self.__stack) == self.__max_size:
+            error.error_message("Overflow Error", "push(): stack full, cannot push {}".format(element))
+        self.__stack.append(element)
 
     def pop(self):
         """
@@ -30,9 +30,9 @@ class Stack:
         :return: Element
         """
         try:
-            return self.stack.pop()
+            return self.__stack.pop()
         except IndexError:
-            error.error_message("Underflow Error", "pop(): Stack empty, cannot pop")
+            error.error_message("Underflow Error", "pop(): stack empty, cannot pop")
 
     def peek(self):
         """
@@ -40,35 +40,35 @@ class Stack:
         :return: Element
         """
         try:
-            return self.stack[-1]
+            return self.__stack[-1]
         except IndexError:
-            error.error_message("Underflow Error", "peek(): Stack empty, cannot peek")
+            error.error_message("Underflow Error", "peek(): stack empty, cannot peek")
 
     def empty(self):
         """
         Check if stack is empty.
         :return: Boolean
         """
-        return len(self.stack) == 0
+        return len(self.__stack) == 0
 
     def full(self):
         """
-        Check if stack is full
+        Check if __stack is full
         :return: Boolean
         """
-        return len(self.stack) == self.max_size
+        return len(self.__stack) == self.__max_size
 
     def count(self):
         """
         Count number of elements in stack
         :return: Number of elements -> int
         """
-        return len(self.stack)
+        return len(self.__stack)
 
     def reverse(self):
         """
         Reverse the elements in the stack
         :return: None
         """
-        reversed(self.stack)
+        self.__stack.reverse()
 
