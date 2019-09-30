@@ -21,7 +21,7 @@ class Stack:
         :return: None
         """
         if len(self.__stack) == self.__max_size:
-            error.error_message("Overflow Error", "push(): stack full, cannot push {}".format(element))
+            return error.error_message("Overflow Error", "push(): stack full, cannot push {}".format(element))
         self.__stack.append(element)
 
     def pop(self):
@@ -32,7 +32,7 @@ class Stack:
         try:
             return self.__stack.pop()
         except IndexError:
-            error.error_message("Underflow Error", "pop(): stack empty, cannot pop")
+            return error.error_message("Underflow Error", "pop(): stack empty, cannot pop")
 
     def peek(self):
         """
@@ -42,7 +42,7 @@ class Stack:
         try:
             return self.__stack[-1]
         except IndexError:
-            error.error_message("Underflow Error", "peek(): stack empty, cannot peek")
+            return error.error_message("Underflow Error", "peek(): stack empty, cannot peek")
 
     def empty(self):
         """
@@ -69,6 +69,6 @@ class Stack:
         """
         Reverse the elements in the stack
         :return: None
-        """his is 
+        """
         self.__stack.reverse()
 
