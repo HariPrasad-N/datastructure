@@ -69,6 +69,6 @@ class Stack:
         """
         Reverse the elements in the stack
         :return: None
-        """
+        """his is 
         self.__stack.reverse()
 
