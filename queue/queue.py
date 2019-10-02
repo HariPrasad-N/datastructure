@@ -13,6 +13,7 @@ class Queue:
             self.__max_size = int(size)
         except ValueError:
             error.error_message("TypeError", "__init__(): Size argument passed invalid")
+            return
         self.__queue = deque(maxlen=self.__max_size)
 
     def enqueue(self, element):
@@ -32,7 +33,7 @@ class Queue:
         """
         if self.__empty():
             return error.error_message("Underflow Error", "dequeue(): queue empty, cannot remove element")
-        return self.__queue.pop()
+        return self.__queue.popleft()
 
     def peek(self):
         """
@@ -63,9 +64,10 @@ class Queue:
         :return: None
         """
         if not self.__empty():
-            for element in range(len(self.__queue)):
-                print(element, end="->")
-            print(None)
+            print("F", end="->")
+            for index in range(len(self.__queue)):
+                print(self.__queue[index], end="->")
+            print("R")
         return
 
     def reverse(self):
@@ -81,4 +83,3 @@ class Queue:
         :return: Count
         """
         return len(self.__queue)
-
