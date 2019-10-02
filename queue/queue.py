@@ -21,7 +21,7 @@ class Queue:
         :param element: Element to be inserted
         :return: None
         """
-        if len(self.__queue) == self.__max_size:
+        if self.__full():
             return error.error_message("Overflow Error", "enqueue(): stack full, cannot insert {}".format(element))
         self.__queue.append(element)
 
@@ -30,8 +30,55 @@ class Queue:
         Removes an element from the front of the queue
         :return: Element removed
         """
-        if len(self.__queue) == 0:
+        if self.__empty():
             return error.error_message("Underflow Error", "dequeue(): queue empty, cannot remove element")
         return self.__queue.pop()
 
+    def peek(self):
+        """
+        Peek an element without actually removing it from the queue
+        :return: The element at the front of the queue
+        """
+        if self.__empty():
+            return error.error_message("Underflow Error", "peek(): queue empty, cannot peek")
+        return self.__queue[0]
+
+    def __empty(self):
+        """
+        Check whether the queue is empty
+        :return: Boolean
+        """
+        return len(self.__queue) == 0
+
+    def __full(self):
+        """
+        Check whether the queue is full
+        :return: Boolean
+        """
+        return len(self.__queue) == self.__max_size
+
+    def display(self):
+        """
+        Display elements in the queue
+        :return: None
+        """
+        if not self.__empty():
+            for element in range(len(self.__queue)):
+                print(element, end="->")
+            print(None)
+        return
+
+    def reverse(self):
+        """
+        Reverse the elements in the queue, or switch the front and rear of the queue
+        :return: None
+        """
+        self.__queue.reverse()
+
+    def count(self):
+        """
+        Count the number of elements in the queue
+        :return: Count
+        """
+        return len(self.__queue)
 
